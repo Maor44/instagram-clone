@@ -1,0 +1,27 @@
+.post {
+  font-size: 1.6rem;
+  width: 100%;
+  max-width: 50rem;
+  background: #ffffff;
+  border: 1px solid var(--main-grey);
+  margin-bottom: 4.5rem;
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+  }
+  &__avatar {
+    margin-right: 1rem;
+  }
+  &__image {
+    width: 100%;
+    object-fit: contain;
+    border-top: 1px solid var(--main-grey);
+    border-bottom: 1px solid var(--main-grey);
+  }
+
+  &__text {
+    font-weight: normal;
+    padding: 2rem;
+  }
+}

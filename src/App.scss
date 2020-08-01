@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+}
+
+:root {
+  font-size: 10px;
+  --main-bg: #f7f7f8;
+  --main-grey: lightgray;
+}
+
+html {
+  font-size: 1rem;
+}
+
+.app {
+  background: var(--main-bg);
+}
