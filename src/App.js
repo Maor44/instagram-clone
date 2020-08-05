@@ -1,17 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.scss';
 
 import Header from './components/Header/Header';
 import Post from './components/Post/Post';
 
+import { db } from './firebase/firebase';
+import { Dialog, Button } from '@material-ui/core';
+
 const App = () => {
+  const [posts, setPosts] = useState([]);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    db.collection('posts').onSnapshot((snapshot) => {
+      setPosts(
+        snapshot.docs.map((doc) => {
+          return { id: doc.id, post: doc.data() };
+        })
+      );
+    });
+  }, []);
+
   return (
     <div className='app'>
+      <Dialog open={open} setOpen={setOpen} />
       <Header />
 
-      <Post username={'maor33'} imageUrl={'https://reactjs.org/logo-og.png'} caption={'React is cool'} />
-      <Post username={'lior22'} imageUrl={'https://miro.medium.com/max/4000/1*WNPicrz6DJegizpj4VY58Q.jpeg'} caption={'vue is cool'} />
-      <Post username={'ron11'} imageUrl={'https://www.freecodecamp.org/news/content/images/2020/04/Copy-of-Copy-of-Travel-Photography.png'} caption={'angular is sucks'} />
+      {posts.map(({ id, post }) => {
+        return (
+          <Post
+            key={id}
+            username={post.username}
+            caption={post.caption}
+            imageUrl={post.imageUrl}
+          />
+        );
+      })}
     </div>
   );
 };
