@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import './App.scss';
 
-import Header from './components/Header/Header';
-import Post from './components/Post/Post';
+import Header from './components/header/Header';
 
 import {auth, db} from './firebase/firebase';
 import Modal from "@material-ui/core/Modal";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import UploadPost from "./components/upload-post/upload-post";
+import Posts from "./components/posts/posts";
 
 function getModalStyle() {
     const top = 50;
@@ -74,7 +75,7 @@ const App = () => {
     }
 
     useEffect(() => {
-        db.collection('posts').onSnapshot((snapshot) => {
+        db.collection('posts').orderBy('timestamp', 'desc').onSnapshot((snapshot) => {
             setPosts(
                 snapshot.docs.map((doc) => {
                     return {id: doc.id, post: doc.data()};
@@ -100,28 +101,11 @@ const App = () => {
     return (
         <div className='app'>
 
-            <Header/>
+            <Header user={user} setSignInOpen={setSignInOpen} setOpen={setOpen}/>
 
-            {user
-                ?
-                <Button onClick={() => auth.signOut()}>signout</Button>
-                :
-                <>
-                    <Button onClick={() => setSignInOpen(true)}>Sign In</Button>
-                    <Button onClick={() => setOpen(true)}>Sign Up</Button>
-                </>
-            }
+            <Posts posts={posts} />
 
-            {posts.map(({id, post}) => {
-                return (
-                    <Post
-                        key={id}
-                        username={post.username}
-                        caption={post.caption}
-                        imageUrl={post.imageUrl}
-                    />
-                );
-            })}
+            <UploadPost username={user?.displayName} />
 
             <Modal
                 open={open}

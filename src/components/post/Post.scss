@@ -1,27 +1,31 @@
 .post {
-  font-size: 1.6rem;
   width: 100%;
-  max-width: 50rem;
+  height: 100%;
   background: #ffffff;
   border: 1px solid var(--main-grey);
-  margin-bottom: 4.5rem;
   &__header {
     display: flex;
     align-items: center;
-    padding: 2rem;
+    padding: 0 1rem;
+    height: 6rem;
   }
   &__avatar {
     margin-right: 1rem;
   }
   &__image {
     width: 100%;
-    object-fit: contain;
+    height: calc(100% - 11rem);
+    object-fit: cover;
     border-top: 1px solid var(--main-grey);
     border-bottom: 1px solid var(--main-grey);
   }
 
   &__text {
     font-weight: normal;
-    padding: 2rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    font-size: 1.2rem;
   }
 }

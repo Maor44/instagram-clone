@@ -2,19 +2,24 @@
 
 * {
   margin: 0;
+  box-sizing: border-box;
 }
 
 :root {
-  font-size: 12px;
+  font-size: 10px;
   font-family: 'Noto Sans', sans-serif !important;
   --main-bg: #f7f7f8;
   --main-grey: lightgray;
 }
 
 html {
-  font-size: 1rem;
+  font-size: 1.2rem;
+}
+
+body {
+  background: var(--main-bg);
 }
 
 .app {
-  background: var(--main-bg);
+  padding-bottom: 18rem;
 }

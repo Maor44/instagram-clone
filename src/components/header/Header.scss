@@ -2,8 +2,9 @@ header {
   background: white;
   padding: 2rem;
   border-bottom: 1px solid #dbdbdb;
-  margin-bottom: 4.5rem;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   &__image {
     object-fit: contain;
   }
