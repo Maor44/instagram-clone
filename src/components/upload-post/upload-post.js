@@ -7,7 +7,7 @@ import {db, storage} from "../../firebase/firebase";
 import {firestore} from "firebase";
 
 function UploadPost({username}) {
-    const [progress, setProgress] = useState(0);
+    const [progress, setProgress] = useState(20);
     const [caption, setCaption] = useState('');
     const [image, setImage] = useState(null);
 

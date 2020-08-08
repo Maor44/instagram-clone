@@ -12,6 +12,7 @@
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.4);
   font-size: 1.4rem;
   padding: 0 1rem;
+
   &__container {
     display: flex;
     flex-direction: column;
@@ -20,14 +21,18 @@
     width: 100%;
     height: 100%;
     max-width: 50rem;
-    margin: 0 auto;
+    margin: 2rem auto 0;
   }
+
   &__progress {
-    height: 0.5rem;
+    height: 0.7rem;
     background: #5d919c;
     align-self: flex-start;
     transition: width 300ms linear;
+    position: absolute;
+    left: 0;
   }
+
   &__input {
     width: 100%;
   }
