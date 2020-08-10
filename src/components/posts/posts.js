@@ -2,7 +2,7 @@ import React from 'react';
 import './posts.scss';
 import Post from "../post/Post";
 
-function Posts({posts}) {
+function Posts({posts, signinUser}) {
     return (
         <div className="posts">
             {posts.length > 0 ? posts.map(({id, post}) => {
@@ -12,6 +12,8 @@ function Posts({posts}) {
                         username={post.username}
                         caption={post.caption}
                         imageUrl={post.imageUrl}
+                        postId={id}
+                        signinUser={signinUser}
                     />
                 );
             }) : <h1>no posts</h1>}

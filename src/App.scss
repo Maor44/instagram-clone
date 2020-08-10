@@ -6,14 +6,9 @@
 }
 
 :root {
-  font-size: 10px;
   font-family: 'Noto Sans', sans-serif !important;
   --main-bg: #f7f7f8;
   --main-grey: lightgray;
-}
-
-html {
-  font-size: 1.2rem;
 }
 
 body {
@@ -21,5 +16,5 @@ body {
 }
 
 .app {
-  padding-bottom: 18rem;
+  padding-bottom: 180px;
 }
