@@ -61,7 +61,7 @@ const Post = ({postId, signinUser, username, imageUrl, caption}) => {
                 {signinUser && <div className="post__comments__form">
                     <input className="post__comments__form__input" value={comment}
                            onChange={(e) => setComment(e.target.value)} placeholder={'Add new comment...'}/>
-                    <Button onClick={handlePostComment} color={"primary"} size={"large"}
+                    <Button disabled={!comment} onClick={handlePostComment} color={"primary"} size={"large"}
                             className="post__comments__form-button">Post</Button>
                 </div>}
             </div>
